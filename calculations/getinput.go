@@ -15,6 +15,7 @@ func GetDigits() (float64, error) {
 		return 0, err
 	}
 
+	// Extract numbers and math operator from input then calculate output
 	return DoMaths(ExctractInput(input)), err
 
 }

@@ -13,6 +13,7 @@ func main() {
 	if err != nil {
 		os.Exit(1)
 	}
+	// Round number to 2 places after . and print output
 	numToString := strconv.FormatFloat(num, 'f', 2, 64)
 	numToString = strings.TrimSuffix(numToString, ".00")
 	fmt.Println(numToString)
