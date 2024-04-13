@@ -23,6 +23,7 @@ func GetDigits() (int, error) {
 		return 0, err
 	}
 
+	FirstNumString = strings.TrimSpace(FirstNumString)
 	FirstNum, err := strconv.Atoi(FirstNumString)
 	if err != nil {
 		return 0, err
@@ -34,30 +35,30 @@ func GetDigits() (int, error) {
 		return 0, err
 	}
 
+	SecondNumString = strings.TrimSpace(SecondNumString)
 	SecondNum, err := strconv.Atoi(SecondNumString)
 	if err != nil {
-		return 0, err
-	}
-
-	if strings.Contains(FirstNumString, " ") {
-		strings.Trim(FirstNumString, " ")
 		return 0, err
 	}
 
 	fmt.Printf("Math operator: ")
 	fmt.Scan(&MathSign)
 
+	return doMaths(FirstNum, SecondNum, MathSign), err
+
+}
+
+func doMaths(num1, num2 int, operator string) int {
 	var Output int
 	switch {
-	case MathSign == "+":
-		Output = FirstNum + SecondNum
-	case MathSign == "-":
-		Output = FirstNum - SecondNum
-	case MathSign == "*":
-		Output = FirstNum * SecondNum
-	case MathSign == "/":
-		Output = FirstNum / SecondNum
+	case operator == "+":
+		Output = num1 + num2
+	case operator == "-":
+		Output = num1 - num2
+	case operator == "*":
+		Output = num1 * num2
+	case operator == "/":
+		Output = num1 / num2
 	}
-
-	return Output, err
+	return Output
 }
