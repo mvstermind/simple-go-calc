@@ -1,4 +1,2 @@
-# simple-go-calc
-# it's  ma first project 
-
+first go project :3
 
