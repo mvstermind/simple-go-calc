@@ -1,8 +1,11 @@
 package calculations
 
 import (
+	"bufio"
 	"fmt"
+	"os"
 	"strconv"
+	"strings"
 )
 
 var (
@@ -13,7 +16,9 @@ var (
 
 func GetDigits() (int, error) {
 	fmt.Printf("Type first number: ")
-	_, err := fmt.Scanf("%v", &FirstNumString)
+	in := bufio.NewReader(os.Stdin)
+
+	FirstNumString, err := in.ReadString('\n')
 	if err != nil {
 		return 0, err
 	}
@@ -24,13 +29,18 @@ func GetDigits() (int, error) {
 	}
 
 	fmt.Printf("Type second number: ")
-	_, errr := fmt.Scanf("%v", &SecondNumString)
-	if errr != nil {
-		return 0, errr
+	SecondNumString, err := in.ReadString('\n')
+	if err != nil {
+		return 0, err
 	}
 
 	SecondNum, err := strconv.Atoi(SecondNumString)
 	if err != nil {
+		return 0, err
+	}
+
+	if strings.Contains(FirstNumString, " ") {
+		strings.Trim(FirstNumString, " ")
 		return 0, err
 	}
 
@@ -49,7 +59,5 @@ func GetDigits() (int, error) {
 		Output = FirstNum / SecondNum
 	}
 
-	result := strconv.Itoa(Output)
-
-	return "Result: " + result
+	return Output, err
 }
