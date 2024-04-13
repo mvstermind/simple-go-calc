@@ -4,6 +4,8 @@ import (
 	"calculator/calculations"
 	"fmt"
 	"os"
+	"strconv"
+	"strings"
 )
 
 func main() {
@@ -11,5 +13,8 @@ func main() {
 	if err != nil {
 		os.Exit(1)
 	}
-	fmt.Println(num)
+	numToString := strconv.FormatFloat(num, 'f', 2, 64)
+	numToString = strings.TrimSuffix(numToString, ".00")
+	fmt.Println(numToString)
+
 }
