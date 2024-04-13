@@ -5,12 +5,6 @@ import (
 	"fmt"
 )
 
-var (
-	FirstNum  int
-	SecondNum int
-	MathSign  string
-)
-
 func main() {
-	fmt.Printf("%v\n", calculations.GetDigits(FirstNum, SecondNum, MathSign))
+	fmt.Printf("%v\n", calculations.GetDigits())
 }

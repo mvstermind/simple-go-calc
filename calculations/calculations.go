@@ -1,13 +1,38 @@
 package calculations
 
-import "fmt"
+import (
+	"fmt"
+	"strconv"
+)
 
-func GetDigits(FirstNum, SecondNum int, MathSign string) int {
+var (
+	FirstNumString  string
+	SecondNumString string
+	MathSign        string
+)
+
+func GetDigits() (int, error) {
 	fmt.Printf("Type first number: ")
-	fmt.Scan(&FirstNum)
+	_, err := fmt.Scanf("%v", &FirstNumString)
+	if err != nil {
+		return 0, err
+	}
+
+	FirstNum, err := strconv.Atoi(FirstNumString)
+	if err != nil {
+		return 0, err
+	}
 
 	fmt.Printf("Type second number: ")
-	fmt.Scan(&SecondNum)
+	_, errr := fmt.Scanf("%v", &SecondNumString)
+	if errr != nil {
+		return 0, errr
+	}
+
+	SecondNum, err := strconv.Atoi(SecondNumString)
+	if err != nil {
+		return 0, err
+	}
 
 	fmt.Printf("Math operator: ")
 	fmt.Scan(&MathSign)
@@ -24,5 +49,7 @@ func GetDigits(FirstNum, SecondNum int, MathSign string) int {
 		Output = FirstNum / SecondNum
 	}
 
-	return Output
+	result := strconv.Itoa(Output)
+
+	return "Result: " + result
 }
