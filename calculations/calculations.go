@@ -8,57 +8,29 @@ import (
 	"strings"
 )
 
-var (
-	FirstNumString  string
-	SecondNumString string
-	MathSign        string
-)
-
 func GetDigits() (int, error) {
-	fmt.Printf("Type first number: ")
+	fmt.Printf("Type a thing to calculate: ")
 	in := bufio.NewReader(os.Stdin)
 
-	FirstNumString, err := in.ReadString('\n')
+	mathCalculation, err := in.ReadString('\n')
 	if err != nil {
 		return 0, err
 	}
 
-	FirstNumString = strings.TrimSpace(FirstNumString)
-	FirstNum, err := strconv.Atoi(FirstNumString)
+	mathString := strings.Split(mathCalculation, " ")
+
+	FirstNum, err := strconv.Atoi(mathString[0])
 	if err != nil {
 		return 0, err
 	}
 
-	fmt.Printf("Type second number: ")
-	SecondNumString, err := in.ReadString('\n')
+	SecondNum, err := strconv.Atoi(strings.TrimSpace(mathString[2]))
 	if err != nil {
 		return 0, err
 	}
 
-	SecondNumString = strings.TrimSpace(SecondNumString)
-	SecondNum, err := strconv.Atoi(SecondNumString)
-	if err != nil {
-		return 0, err
-	}
+	MathSign := mathString[1]
 
-	fmt.Printf("Math operator: ")
-	fmt.Scan(&MathSign)
+	return DoMaths(FirstNum, SecondNum, MathSign), err
 
-	return doMaths(FirstNum, SecondNum, MathSign), err
-
-}
-
-func doMaths(num1, num2 int, operator string) int {
-	var Output int
-	switch {
-	case operator == "+":
-		Output = num1 + num2
-	case operator == "-":
-		Output = num1 - num2
-	case operator == "*":
-		Output = num1 * num2
-	case operator == "/":
-		Output = num1 / num2
-	}
-	return Output
 }
