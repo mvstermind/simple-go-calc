@@ -7,11 +7,10 @@ import (
 
 var (
 	FirstNum  int
-	MathSign  string
 	SecondNum int
+	MathSign  string
 )
 
 func main() {
-	firstDigit, secondDigit := calculations.GetDigits(FirstNum, SecondNum)
-	fmt.Printf("%v, %v\n", firstDigit, secondDigit)
+	fmt.Printf("%v\n", calculations.GetDigits(FirstNum, SecondNum, MathSign))
 }
