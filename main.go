@@ -12,6 +12,6 @@ var (
 )
 
 func main() {
-	firstDigit := calculations.GetDigit1(FirstNum)
-	fmt.Printf("%v\n", firstDigit)
+	firstDigit, secondDigit := calculations.GetDigits(FirstNum, SecondNum)
+	fmt.Printf("%v, %v\n", firstDigit, secondDigit)
 }
