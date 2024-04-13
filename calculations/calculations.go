@@ -1,5 +1,9 @@
 package calculations
 
-func DoMaths(input string) string {
-	return ""
+import "fmt"
+
+func GetDigit1(FirstNum int) int {
+	fmt.Printf("Type first number: ")
+	fmt.Scan(&FirstNum)
+	return FirstNum
 }

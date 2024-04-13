@@ -1,14 +1,17 @@
 package main
 
 import (
-	//"calculator/calculations"
+	"calculator/calculations"
 	"fmt"
 )
 
-var input string
+var (
+	FirstNum  int
+	MathSign  string
+	SecondNum int
+)
 
 func main() {
-	fmt.Print("Type two numbers separated with: ")
-	fmt.Scanln(&input)
-	fmt.Printf(input)
+	firstDigit := calculations.GetDigit1(FirstNum)
+	fmt.Printf("%v\n", firstDigit)
 }
