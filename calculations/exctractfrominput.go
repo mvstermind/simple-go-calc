@@ -6,15 +6,16 @@ import (
 	"strings"
 )
 
-func ExctractInput(input string) (int, int, string) {
+func ExctractInput(input string) (float64, float64, string) {
 	mathString := strings.Split(input, " ")
 
-	firstDigit, err := strconv.Atoi(mathString[0])
+	firstDigit, err := strconv.ParseFloat(mathString[0], 64)
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	secDigit, err := strconv.Atoi(strings.TrimSpace(mathString[2]))
+	mathString[2] = strings.TrimSpace(mathString[2])
+	secDigit, err := strconv.ParseFloat(mathString[2], 64)
 	if err != nil {
 		log.Fatal(err)
 	}

@@ -6,7 +6,7 @@ import (
 	"os"
 )
 
-func GetDigits() (int, error) {
+func GetDigits() (float64, error) {
 	fmt.Printf("Type a thing to calculate: ")
 	in := bufio.NewReader(os.Stdin)
 
